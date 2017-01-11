@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    div(height="600px", width="300px")
+    h1= res.name
+    form(name='apply', method='post')
+        fieldset.form-group
+            label(for="FirstName")= "First Name:"
+            =' '
+            input(type='text', name='FirstName', id='FirstName',placeholder="Enter First Name", class="form-control", required)
+        fieldset.form-group
+            label(for="LastName")= "Last Name:"
+            =' '
+            input(type='text', name='LastName', id='LastName',placeholder="Enter Last Name", class="form-control", required)
+        fieldset.form-group
+            label(for="Email")= "Email:"
+            =' '
+            input(type='email', name='Email', id='Email',placeholder="Enter email@test.com", class="form-control", required)
+        fieldset.form-group
+            label(for="CoverLetter")= "Cover Letter:"
+            =' '
+            textarea(class='form-control', name='CoverLetter', id='CoverLetter', rows='4')
+        fieldset.form-group
+            label(for="Resume")= "Resume:"
+            =' '
+            textarea(class='form-control', name='Resume', id='Resume', rows='4')
+        input(type='hidden', name='sfid_pos', id='sfid_pos', value='#{res.sfid}')
+        button(type='submit' class="btn btn-primary")= 'Submit'

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div(height="600px")
+        h1= res.name
+        h4= "Description" 
+        pre=  res.job_description__c
+        h4= "Responsibilities" 
+        pre= res.responsibilities__c
+        h4= "Skills Required"
+        pre= res.skills_required__c
+        h4= "Educational Requirements"
+        pre= res.educational_requirements__c        
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-md-12")
+                    strong= "Type: "+ res.type__c
+            div(class="row")
+                div(class="col-md-12")
+                    strong= "Pay Range: "+ numeral(res.max_pay__c).format('$0,0.00') + ' - ' + numeral(res.min_pay__c).format('$0,0.00')
+        br
+        a(href='/', class='btn btn-primary')= "Back"  
+        =" "
+        a(href='/apply?i='+ res.id, class='btn btn-primary')= "Apply"

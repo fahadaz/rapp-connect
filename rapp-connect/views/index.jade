@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    div(height="600px")
+        h1= title
+        br
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-md-3")
+                    strong Name
+                div(class="col-md-6") 
+                    strong Description / Responsibilities
+                div(class="col-md-1") 
+                    strong Location
+                div(class="col-md-1") 
+                    strong Area
+            each item in results
+                div(class="row")
+                    div(class="col-md-3") 
+                        a(href='/detail?i=#{item.id}') #{item.name}
+                    div(class="col-md-6") 
+                        pre #{item.job_description__c}                        
+                        pre #{item.responsibilities__c}
+                    div(class="col-md-1") #{item.location__c}
+                    div(class="col-md-1") #{item.functional_area__c}
+                
